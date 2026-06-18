@@ -1,0 +1,63 @@
+{
+  "name": "claude-ide-studio",
+  "version": "1.0.0",
+  "description": "Claude IDE Studio - Entorno de desarrollo integrado con Claude AI",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "rebuild": "electron-rebuild -f -w node-pty"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aalvaro0047-boop/claude-ide-studio.git"
+  },
+  "keywords": [],
+  "author": "Alvaro",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/aalvaro0047-boop/claude-ide-studio/issues"
+  },
+  "homepage": "https://github.com/aalvaro0047-boop/claude-ide-studio#readme",
+  "dependencies": {
+    "electron": "^42.4.1",
+    "electron-updater": "^6.8.9",
+    "node-pty": "^1.1.0",
+    "xterm": "^4.19.0",
+    "xterm-addon-fit": "^0.5.0"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.4",
+    "electron-builder": "^26.15.3",
+    "electron-rebuild": "^3.2.9"
+  },
+  "build": {
+    "appId": "com.alvaro.claude-ide-studio",
+    "productName": "Claude IDE Studio",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": ["nsis"]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "aalvaro0047-boop",
+      "repo": "claude-ide-studio"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "renderer.js",
+      "styles.css",
+      "node_modules/**/*",
+      "!node_modules/**/*.md"
+    ]
+  }
+}
