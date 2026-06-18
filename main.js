@@ -81,7 +81,7 @@ ipcMain.on('window:close', () => mainWindow?.close())
 ipcMain.handle('terminal:create', async (_event, { cols = 80, rows = 24 } = {}) => {
   let nodePty
   try {
-    nodePty = require('node-pty')
+    nodePty = require('@lydell/node-pty')
   } catch (err) {
     // Detectar error de incompatibilidad de ABI (versión de módulo nativo)
     const esVersionMismatch = err.message.includes('version') ||
